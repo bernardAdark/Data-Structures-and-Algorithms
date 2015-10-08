@@ -72,7 +72,7 @@ public class BetterArray<E> {
   	 *Big O = O(1)  constant time 
     */
 	public void append(E e){
-		insert(size,  e);
+		insert(size, e);
 	}
 	
 	 /** 	     
@@ -107,10 +107,10 @@ public class BetterArray<E> {
   	 *Big O Best case = O(1)  constant time when index is at end
   	 *Big O worst case = O(n)  when index is at first;
     */
-	public void remove(int index){
+	public void remove(int index)throws IndexOutOfBoundsException{
 		if(index < 0 || index >= size)
 			throw new IndexOutOfBoundsException("the index is not within the range");
-		for (int i = index; i < size ; i ++){
+		for (int i = index; i < size-1 ; i ++){
 			array[i] = array [i + 1];;
 		}
 		   array[size -1] = null;
@@ -176,4 +176,34 @@ public class BetterArray<E> {
 	    public String toString(){
 		return Arrays.toString(array);
 		}
+	    
+	    public static void main(String [] args){
+	    	BetterArray<Integer> me = new BetterArray<Integer>();
+	    	Integer [] r = {3,76,12,54,67,34,23,98,67,34};
+	    	System.out.println(me.isEmpty());
+	    	me.add(r);
+	    	System.out.println(me.toString());
+	    	me.remove(3);
+	    	System.out.println(me.toString());
+	    	me.add(76);
+	    	me.reverse();
+	    	System.out.println(me.toString());
+	    	
+	    	System.out.println(me.toString());
+	    	System.out.println(me.isEmpty());
+	    	me.insert(5, 10);
+	    	me.reverse();
+	    	System.out.println(me.toString());
+	    	System.out.println(me.get(6));
+	    	me.remove(3);
+	    	System.out.println(me.toString());
+	    	
+	    	
+	    	
+	    	
+	    	
+	    	
+	    	
+	    	
+	    }
 }
