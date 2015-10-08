@@ -177,33 +177,5 @@ public class BetterArray<E> {
 		return Arrays.toString(array);
 		}
 	    
-	    public static void main(String [] args){
-	    	BetterArray<Integer> me = new BetterArray<Integer>();
-	    	Integer [] r = {3,76,12,54,67,34,23,98,67,34};
-	    	System.out.println(me.isEmpty());
-	    	me.add(r);
-	    	System.out.println(me.toString());
-	    	me.remove(3);
-	    	System.out.println(me.toString());
-	    	me.add(76);
-	    	me.reverse();
-	    	System.out.println(me.toString());
-	    	
-	    	System.out.println(me.toString());
-	    	System.out.println(me.isEmpty());
-	    	me.insert(5, 10);
-	    	me.reverse();
-	    	System.out.println(me.toString());
-	    	System.out.println(me.get(6));
-	    	me.remove(3);
-	    	System.out.println(me.toString());
-	    	
-	    	
-	    	
-	    	
-	    	
-	    	
-	    	
-	    	
-	    }
+	  
 }
