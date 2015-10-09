@@ -1,6 +1,6 @@
 package org.meltwater.java.datastructures;
 
-
+import java.util.NoSuchElementException;
 
 public class LinkedList<E> {
 	
@@ -113,20 +113,22 @@ public class LinkedList<E> {
 		return str;
 	}
 	
-	public Object head(){
-		if(myNode == null){}
-          //Exception			
-		return myNode.getNext();
+	public Object head() throws NoSuchElementException{
+		if(myNode.getNext() != null)
+			return myNode.getNext();
+		else
+			throw new NoSuchElementException("Doesnt exist");		
 	}
 	
-	public Object tail(){
-		if(myNode == null){}
-	          //Exception	
-		Nodde current = myNode;
-		for(int i = 0; i < counter ; i++){
+	public Object tail() throws NoSuchElementException{
+		if(myNode.getNext() != null){      	
+		   Nodde current = myNode;
+		   for(int i = 0; i < counter ; i++){
 			current = current.getNext();
+		   }
+		   return current;
 		}
-		return current;
+		throw new NoSuchElementException("Doesnt Exist");
 	}
 	
 	public boolean isEmpty(){
@@ -158,14 +160,22 @@ public class LinkedList<E> {
 		}
 	}
 	
-	public void reverse(){
-		Nodde temp = new Nodde(null);
-		Nodde current = myNode;
-		for(int i = 0; i < counter; i++){
-			
-		}
-		
-	}
+//	public LinkedList<E> reverse(){
+//		
+//		    if(myNode==null || myNode.getNext() == null)
+//		        return myNode;;
+//		 
+//		    //get second node    
+//		    ListNode second = head.next;
+//		    //set first's next to be null
+//		    head.next = null;
+//		 
+//		    ListNode rest = reverseList(second);
+//		    second.next = head;
+//		 
+//		    return rest;
+//		}
+//	}
 	
 	public void insertBefore(Object e, Object d){
 //		error
