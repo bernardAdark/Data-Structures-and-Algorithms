@@ -8,13 +8,14 @@ import java.util.NoSuchElementException;
 		private E [] queue;
 		private int begin;
 		private int end;
-		static int default_size = 4;
+		static int default_size = 5;
 		
 		public Queue(){
 			queue = (E[]) new Object[default_size]; 
 			begin = 0;
 			end=-1;
 		}
+		
 		
 		public  Queue(int n){
 			default_size = n;
@@ -52,7 +53,11 @@ import java.util.NoSuchElementException;
 		  */
 		
 	   public boolean isFull(){
-		  return (end == default_size - 1 && begin == 0 || (queue[end +1] != null && end != -1));
+		if (end == default_size - 1 && begin == 0)
+			return true;
+	    if((end < begin && begin -1 == 1)&& end != -1 )
+	        return true;
+	    return false;
 		 }
 	 
 	   /** 
@@ -64,14 +69,14 @@ import java.util.NoSuchElementException;
 		 *Big O = O(1)  constant time
 		  */
 	    public E remove() throws NoSuchElementException{
-	    	if(isEmpty()){
-	    		throw new NoSuchElementException("");
-	    		}
+	    	if(isEmpty())
+	    		throw new NoSuchElementException("The element is missing");	    		
 	        E temp = queue[begin];
 	    	queue[begin] = null;
 	    	if(begin == default_size-1)
 	    		begin = 0 ;
-	        else begin++;
+	        else 
+	        	begin++;
 	    	return temp;
 	    	
 	     }
@@ -81,7 +86,7 @@ import java.util.NoSuchElementException;
 		 *@returns the first element
 		 *Big O = O(1)  constant time
 		  */
-	    public E peak(){
+	    public E peek(){
 	       return queue[begin];
 	    }
 	    
@@ -91,7 +96,7 @@ import java.util.NoSuchElementException;
 		 *Big O = O(1)  constant time
 		  */
 	    public boolean isEmpty(){
-	    	return(end == -1 || begin ==0  );
+	    	return(end == -1 && begin ==0  );
 	    }
 	    
 	    /** 	     
@@ -137,6 +142,6 @@ import java.util.NoSuchElementException;
 	    		end =-1;
 	    	}
 	    }
-	    
+	  
 
 }
